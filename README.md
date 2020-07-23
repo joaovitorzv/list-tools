@@ -2,7 +2,7 @@
 
 ### 🧐 Objective 
 
-This project was made to increase my knowledge about typescript and typeorm, on this project i've learned how to instantiate services, create entities, throw app errors and tests with jest
+This project was made to increase my knowledge about typescript, typeorm and tests, on this project i've learned how to instantiate services, create entities, throw app errors and tests with jest
 
 ### Routes
 
@@ -31,3 +31,4 @@ This project was made to increase my knowledge about typescript and typeorm, on 
   - [Node.js](https://nodejs.org/en/)
   - [Typescript](https://www.typescriptlang.org/)
   - [Typeorm](https://typeorm.io/)
+  -  [Jest](https://jestjs.io/)
