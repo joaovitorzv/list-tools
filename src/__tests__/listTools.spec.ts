@@ -3,7 +3,6 @@ import { getConnection, getRepository, Connection } from 'typeorm';
 import createConnection from '../database';
 
 import Tool from '../models/Tool';
-import Tag from '../models/Tag';
 
 import app from '../app';
 
@@ -15,7 +14,6 @@ describe('ListTools', () => {
 
 
     await connection.query('DROP TABLE IF EXISTS tools');
-    await connection.query('DROP TABLE IF EXISTS tags');
     await connection.query('DROP TABLE IF EXISTS migrations');
 
     await connection.runMigrations();
@@ -23,7 +21,6 @@ describe('ListTools', () => {
 
   beforeEach(async () => {
     await connection.query('DELETE FROM tools');
-    await connection.query('DELETE FROM tags');
   });
 
   afterAll(async () => {
@@ -112,4 +109,53 @@ describe('ListTools', () => {
       }),
     );
   });
-})
+
+
+  it('Should filter tools by tag', async () => {
+    await request(app).post('/tools').send({
+      title: 'json-server',
+      link: 'https://github.com/typicode/json-server',
+      description: 'Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.',
+      tags: [
+        "api",
+        "json",
+        "schema",
+        "node",
+        "github",
+        "rest"
+      ],
+    });
+
+    await request(app).post('/tools').send({
+      title: "fastify",
+      link: "https://www.fastify.io/",
+      description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+      tags: [
+        "web",
+        "framework",
+        "node",
+        "http2",
+        "https",
+        "localhost"
+      ],
+    });
+
+    const response = await request(app).get('/tools?tag=api');
+
+    expect(response.body).toHaveLength(1);
+
+    expect(response.body).toMatchObject({
+      title: 'json-server',
+      link: 'https://github.com/typicode/json-server',
+      description: 'Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.',
+      tags: [
+        "api",
+        "json",
+        "schema",
+        "node",
+        "github",
+        "rest"
+      ]
+    });
+  });
+});
