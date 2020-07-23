@@ -4,7 +4,10 @@
 
 This project was made to increase my knowledge about typescript, typeorm and tests, on this project i've learned how to instantiate services, create entities, throw app errors and tests with jest
 
-### Routes
+### 💡 What does it do
+You can save your tools, with your link description and tags
+
+### 📏 Routes
 
 `GET` `/tools` must return all tools registered in the database
 
