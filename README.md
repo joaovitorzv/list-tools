@@ -1,9 +1,8 @@
 # List tools 📋
 
-### 🔨 This project was made with the following technologies:
-  - [Node.js](https://nodejs.org/en/)
-  - [Typescript](https://www.typescriptlang.org/)
-  - [Typeorm](https://typeorm.io/)
+### 🧐 Objective 
+
+This project was made to increase my knowledge about typescript and typeorm, on this project i've learned how to instantiate services, create entities, throw app errors and tests with jest
 
 ### Routes
 
@@ -28,6 +27,7 @@
 
 `DELETE` `/tools/:id` delete the tool especified with your id param
 
-### Objective 
-
-This project was made to increase my knowledge about typescript and typeorm, on this project i've learned how to instantiate services, create entities, throw app errors and tests with jest
+### 🔨 This project was made with the following technologies:
+  - [Node.js](https://nodejs.org/en/)
+  - [Typescript](https://www.typescriptlang.org/)
+  - [Typeorm](https://typeorm.io/)
